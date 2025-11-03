@@ -30,3 +30,10 @@ app.post('/buku', async (req, res) => {
         res.send({ message: error.message });
     }
 });
+app.get('/buku', async (req, res) => {
+    try {const buku = await db.Buku.findAll();
+        res.send(buku);
+    } catch (error) {
+        res.send({ message: error.message });
+    }
+});
