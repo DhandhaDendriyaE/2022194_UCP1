@@ -37,3 +37,14 @@ app.get('/buku', async (req, res) => {
         res.send({ message: error.message });
     }
 });
+app.put('/buku/:id', async (req, res) => {
+    const id = req.params.id;
+    const data = req.body;
+    try {
+        const buku = await db.Buku.update(data, { where: { id: id } });
+        res.send({ message: 'Buku updated successfully' });
+    } catch (error) {
+        res.send({ message: error.message });
+    }
+});
+
