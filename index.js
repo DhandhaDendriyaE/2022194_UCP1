@@ -47,4 +47,17 @@ app.put('/buku/:id', async (req, res) => {
         res.send({ message: error.message });
     }
 });
-
+app.delete('/buku/:id', async (req, res) => {
+    const id = req.params.id;
+    try {
+        const buku = await db.buku.findByPk(id);
+        if (!buku) {
+            return res.status(404).send({ message: 'Buku not found' });
+        }
+        await buku.destroy();
+        res.send({ message: 'Buku deleted successfully' });
+    }
+    catch (error) {
+        res.send({ message: error.message });
+    }
+}); 
