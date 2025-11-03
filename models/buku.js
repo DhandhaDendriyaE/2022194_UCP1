@@ -1,3 +1,4 @@
+
 module.exports = (sequelize, DataTypes) => {
     const Buku = sequelize.define('Buku', {
         id: {
@@ -19,5 +20,6 @@ module.exports = (sequelize, DataTypes) => {
         },           
         bidang
     });
+    
     return Buku;
 }
