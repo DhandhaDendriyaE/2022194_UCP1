@@ -1,9 +1,8 @@
-
 module.exports = (sequelize, DataTypes) => {
     const Buku = sequelize.define('Buku', {
         id: {
             type: DataTypes.INTEGER,
-            primaryKey: true,   
+            primaryKey: true,
             autoIncrement: true
         },
         judul: {
@@ -17,9 +16,15 @@ module.exports = (sequelize, DataTypes) => {
         tahun_terbit: {
             type: DataTypes.INTEGER,
             allowNull: false
-        },           
-        bidang
+        },
+        bidang_studi: {
+            type: DataTypes.STRING,
+            allowNull: false
+        }
+    }, {
+        tableName: 'buku',
+        timestamps: false
     });
-    
+
     return Buku;
-}
+};  
